@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import GrdButton from "../shared/GrdButton";
 
 const Banner = () => {
@@ -12,7 +13,9 @@ const Banner = () => {
           a client their goals than programming a workout and setting the pin in
           the weight stack.
         </p>
+        <Link to="/parts">
         <GrdButton>Get Started</GrdButton>
+        </Link>
       </div>
     </div>
   );
