@@ -24,10 +24,10 @@ const Footer = () => {
       </div>
       <div>
         <span className="footer-title">Services</span>
-        <Link to="/" className="link link-hover">Branding</Link>
-        <Link to="/" className="link link-hover">Design</Link>
-        <Link to="/" className="link link-hover">Marketing</Link>
-        <Link to="/" className="link link-hover">Advertisement</Link>
+        <Link to="/" className="link link-hover">Supply</Link>
+        <Link to="/" className="link link-hover">Shipment</Link>
+        <Link to="/" className="link link-hover">Creating</Link>
+        <Link to="/" className="link link-hover">Exporting</Link>
       </div>
       <div>
         <span className="footer-title">Company</span>

@@ -1,11 +1,12 @@
 import React from "react";
 import Banner from "./Banner";
+import Choose from "./Choose";
 
 const Home = () => {
   return (
     <div>
       <Banner />
-      {/* <div className="h-screen"></div> */}
+      <Choose></Choose>
     </div>
   );
 };

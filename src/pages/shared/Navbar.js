@@ -39,9 +39,7 @@ const Navbar = () => {
     <>
       <li>
         <NavLink
-          className={`btn-md font-medium ${
-            location.pathname === "/" && "lg:text-white"
-          }`}
+          className={`btn-md font-medium text-gray-300`}
           to="/"
         >
           Home
@@ -49,9 +47,7 @@ const Navbar = () => {
       </li>
       <li>
         <NavLink
-          className={`btn-md font-medium ${
-            location.pathname === "/" && "lg:text-white"
-          }`}
+          className={`btn-md font-medium text-gray-300`}
           to="/about"
         >
           About
@@ -59,9 +55,7 @@ const Navbar = () => {
       </li>
       <li>
         <NavLink
-          className={`btn-md font-medium ${
-            location.pathname === "/" && "lg:text-white"
-          }`}
+          className={`btn-md font-medium text-gray-300`}
           to="/parts"
         >
           Parts
@@ -69,9 +63,7 @@ const Navbar = () => {
       </li>
       <li>
         <NavLink
-          className={`btn-md font-medium ${
-            location.pathname === "/" && "lg:text-white"
-          }`}
+          className={`btn-md font-medium text-gray-300`}
           to="/reviews"
         >
           Reviews
@@ -79,9 +71,7 @@ const Navbar = () => {
       </li>
       <li>
         <NavLink
-          className={`btn-md font-medium ${
-            location.pathname === "/" && "lg:text-white"
-          }`}
+          className={`btn-md font-medium text-gray-300`}
           to="/contact"
         >
           Contact Us
