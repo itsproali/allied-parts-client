@@ -38,42 +38,27 @@ const Navbar = () => {
   const navItem = (
     <>
       <li>
-        <NavLink
-          className={`btn-md font-medium text-gray-300`}
-          to="/"
-        >
+        <NavLink className={`btn-md font-medium`} to="/">
           Home
         </NavLink>
       </li>
       <li>
-        <NavLink
-          className={`btn-md font-medium text-gray-300`}
-          to="/about"
-        >
+        <NavLink className={`btn-md font-medium`} to="/about">
           About
         </NavLink>
       </li>
       <li>
-        <NavLink
-          className={`btn-md font-medium text-gray-300`}
-          to="/parts"
-        >
+        <NavLink className={`btn-md font-medium`} to="/parts">
           Parts
         </NavLink>
       </li>
       <li>
-        <NavLink
-          className={`btn-md font-medium text-gray-300`}
-          to="/reviews"
-        >
+        <NavLink className={`btn-md font-medium`} to="/reviews">
           Reviews
         </NavLink>
       </li>
       <li>
-        <NavLink
-          className={`btn-md font-medium text-gray-300`}
-          to="/contact"
-        >
+        <NavLink className={`btn-md font-medium`} to="/contact">
           Contact Us
         </NavLink>
       </li>
@@ -85,13 +70,16 @@ const Navbar = () => {
       // data-aos="fade-down"
       // data-aos-duration="500"
       className={`parent visible ${show && "hidden"} ${
-        window.scrollY > 200 && "bg-white shadow-lg border-b"
+        window.scrollY > 200 ? "bg-white shadow-lg border-b" : "text-gray-300"
       } ${location.pathname !== "/" && "bg-white shadow-lg"}`}
     >
       <div className={`navbar`}>
         <div className="navbar-start">
           <div className="dropdown">
-            <label tabIndex="0" className="btn btn-ghost lg:hidden text-primary">
+            <label
+              tabIndex="0"
+              className="btn btn-ghost lg:hidden text-primary"
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-5 w-5"

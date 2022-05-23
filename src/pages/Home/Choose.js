@@ -20,7 +20,7 @@ const Choose = () => {
               We are determined to see you happy anyhow. Our main target is to
               fulfill the client's requirements. We provide 100% genuine parts.
               We don't want clients suffering. These are the main difference
-              between and others.
+              between us with others.
             </p>
             <div className="grid grid-cols-2 gap-4 mb-4">
               <div className="flex items-center">
