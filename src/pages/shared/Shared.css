@@ -1,0 +1,9 @@
+.parent {
+    padding: 0 5%;
+}
+
+@media only screen and (max-width: 640px) {
+    .parent {
+        padding: 0 1.5%
+    }
+}
