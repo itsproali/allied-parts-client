@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
-// import { signOut } from "firebase/auth";
-// import { useAuthState } from "react-firebase-hooks/auth";
+import { signOut } from "firebase/auth";
+import { useAuthState } from "react-firebase-hooks/auth";
 import { Link, NavLink, useLocation } from "react-router-dom";
-// import auth from "../../../firebase-init";
+import auth from "../../firebase-init"
 import "./Shared.css";
 import "./Navbar.css";
 
 const Navbar = () => {
-  // const [user] = useAuthState(auth);
+  const [user] = useAuthState(auth);
   const location = useLocation();
   const [show, setShow] = useState(false);
   const [lastScrollY, setLastScrollY] = useState(0);
@@ -30,10 +30,10 @@ const Navbar = () => {
     }
   }, [lastScrollY]);
 
-  // const logOut = () => {
-  //   signOut(auth);
-  //   localStorage.removeItem("accessToken");
-  // };
+  const logOut = () => {
+    signOut(auth);
+    localStorage.removeItem("accessToken");
+  };
 
   const navItem = (
     <>
@@ -42,11 +42,7 @@ const Navbar = () => {
           Home
         </NavLink>
       </li>
-      <li>
-        <NavLink className={`btn-md font-medium`} to="/about">
-          About
-        </NavLink>
-      </li>
+
       <li>
         <NavLink className={`btn-md font-medium`} to="/parts">
           Parts
@@ -62,6 +58,11 @@ const Navbar = () => {
           Contact Us
         </NavLink>
       </li>
+      <li>
+        <NavLink className={`btn-md font-medium`} to="/portfolio">
+          My Portfolio
+        </NavLink>
+      </li>
     </>
   );
 
@@ -71,7 +72,7 @@ const Navbar = () => {
       // data-aos-duration="500"
       className={`parent visible ${show && "hidden"} ${
         window.scrollY > 200 ? "bg-white shadow-lg border-b" : "text-gray-300"
-      } ${location.pathname !== "/" && "bg-white shadow-lg"}`}
+      } ${location.pathname !== "/" && "bg-white shadow-lg text-black"}`}
     >
       <div className={`navbar`}>
         <div className="navbar-start">
@@ -113,8 +114,8 @@ const Navbar = () => {
           <ul className="menu menu-horizontal p-0">{navItem}</ul>
         </div>
         <div className="navbar-end">
-          {/* {!user ? (
-            <NavLink className="btn" to="/login">
+          {!user ? (
+            <NavLink className="btn btn-secondary" to="/login">
               Login
             </NavLink>
           ) : (
@@ -156,7 +157,7 @@ const Navbar = () => {
                 </li>
               </ul>
             </div>
-          )} */}
+          )}
         </div>
       </div>
     </div>
