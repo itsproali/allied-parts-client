@@ -5,6 +5,7 @@ import Navbar from "./pages/shared/Navbar";
 import Blog from "./pages/Blog/Blog";
 import Footer from "./pages/shared/Footer";
 import Login from "./pages/Login/Login";
+import Notfound from "./pages/Notfound/Notfound";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path="/" element={<Home />}></Route>
         <Route path="/blog" element={<Blog />}></Route>
         <Route path="/login" element={<Login />}></Route>
+        <Route path="*" element={<Notfound />}></Route>
       </Routes>
       <Footer />
     </div>
