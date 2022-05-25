@@ -6,6 +6,7 @@ import {
 import { useForm } from "react-hook-form";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import auth from "../../firebase-init";
+import Loading from "../shared/Loading";
 import SocialLogin from "./SocialLogin";
 
 const Register = () => {
@@ -24,7 +25,7 @@ const Register = () => {
 
 
   if (loading || updating) {
-    return <p>Loading ...</p>;
+    return <Loading/>;
   }
 
   const onSubmit = async (data) => {

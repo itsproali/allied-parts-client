@@ -1,0 +1,65 @@
+[
+    {
+        "_id": 1,
+        "title": "Bumper Cover",
+        "description": "loreml sdifimlakdf; aldjlvlkjlsdfjala sdlsd sdfljasdlkfj lsdlksadjflasjd ;lsadjfl;sjfl;sadjf l;asdjfl;asdjfl;ksdjfl;asdflasdjflsad flsj sjdflsajdflkasjdflkjsdalfasdf",
+        "price": 100,
+        "available": 8000,
+        "img": "https://i.ibb.co/zx7pGST/bumper-cover.png",
+        "minimum": 300
+    },
+    {
+        "_id": 2,
+        "title": "Bumper Cover 2",
+        "description": "loreml sdifimlakdf; aldjlvlkjlsdfjala sdlsd sdfljasdlkfj lsdlksadjflasjd ;lsadjfl;sjfl;sadjf l;asdjfl;asdjfl;ksdjfl;asdflasdjflsad flsj sjdflsajdflkasjdflkjsdalfasdf",
+        "price": 100,
+        "available": 8000,
+        "img": "https://i.ibb.co/zx7pGST/bumper-cover.png",
+        "minimum": 300
+    },
+    {
+        "_id": 3,
+        "title": "Bumper Cover 3",
+        "description": "loreml sdifimlakdf; aldjlvlkjlsdfjala sdlsd sdfljasdlkfj lsdlksadjflasjd ;lsadjfl;sjfl;sadjf l;asdjfl;asdjfl;ksdjfl;asdflasdjflsad flsj sjdflsajdflkasjdflkjsdalfasdf",
+        "price": 100,
+        "available": 8000,
+        "img": "https://i.ibb.co/zx7pGST/bumper-cover.png",
+        "minimum": 300
+    },
+    {
+        "_id": 4,
+        "title": "Bumper Cover 4",
+        "description": "loreml sdifimlakdf; aldjlvlkjlsdfjala sdlsd sdfljasdlkfj lsdlksadjflasjd ;lsadjfl;sjfl;sadjf l;asdjfl;asdjfl;ksdjfl;asdflasdjflsad flsj sjdflsajdflkasjdflkjsdalfasdf",
+        "price": 100,
+        "available": 8000,
+        "img": "https://i.ibb.co/zx7pGST/bumper-cover.png",
+        "minimum": 300
+    },
+    {
+        "_id": 5,
+        "title": "Bumper Cover 5",
+        "description": "loreml sdifimlakdf; aldjlvlkjlsdfjala sdlsd sdfljasdlkfj lsdlksadjflasjd ;lsadjfl;sjfl;sadjf l;asdjfl;asdjfl;ksdjfl;asdflasdjflsad flsj sjdflsajdflkasjdflkjsdalfasdf",
+        "price": 100,
+        "available": 8000,
+        "img": "https://i.ibb.co/zx7pGST/bumper-cover.png",
+        "minimum": 300
+    },
+    {
+        "_id": 6,
+        "title": "Bumper Cover 6",
+        "description": "loreml sdifimlakdf; aldjlvlkjlsdfjala sdlsd sdfljasdlkfj lsdlksadjflasjd ;lsadjfl;sjfl;sadjf l;asdjfl;asdjfl;ksdjfl;asdflasdjflsad flsj sjdflsajdflkasjdflkjsdalfasdf",
+        "price": 100,
+        "available": 8000,
+        "img": "https://i.ibb.co/zx7pGST/bumper-cover.png",
+        "minimum": 300
+    },
+    {
+        "_id": 7,
+        "title": "Bumper Cover 7",
+        "description": "loreml sdifimlakdf; aldjlvlkjlsdfjala sdlsd sdfljasdlkfj lsdlksadjflasjd ;lsadjfl;sjfl;sadjf l;asdjfl;asdjfl;ksdjfl;asdflasdjflsad flsj sjdflsajdflkasjdflkjsdalfasdf",
+        "price": 100,
+        "available": 8000,
+        "img": "https://i.ibb.co/zx7pGST/bumper-cover.png",
+        "minimum": 300
+    }
+]

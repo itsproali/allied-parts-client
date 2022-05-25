@@ -7,6 +7,7 @@ import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import SocialLogin from "./SocialLogin";
 import auth from "../../firebase-init";
+import Loading from "../shared/Loading";
 
 const Login = () => {
   const [signInWithEmailAndPassword, user, loading, error] =
@@ -33,6 +34,11 @@ const Login = () => {
       window.alert("Something Went wrong");
     }
   };
+
+  if (loading || sending) {
+    return <Loading />;
+  }
+  
   return (
     <div className="flex min-h-screen items-center justify-center mt-10">
       <div className="card w-96 bg-base-100 shadow-xl border">
