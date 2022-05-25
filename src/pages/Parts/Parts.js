@@ -18,7 +18,7 @@ const Parts = () => {
   if (isLoading) {
     return <Loading />;
   }
-  console.log(parts?.data);
+
   return (
     <div className="parent my-24">
       <h1 className="text-center text-primary text-4xl my-4 font-bold">

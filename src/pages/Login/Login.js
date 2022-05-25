@@ -1,15 +1,17 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   useSendPasswordResetEmail,
   useSignInWithEmailAndPassword,
 } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import SocialLogin from "./SocialLogin";
 import auth from "../../firebase-init";
 import Loading from "../shared/Loading";
+import useToken from "../../hooks/useToken";
 
 const Login = () => {
+  const navigate = useNavigate();
   const [signInWithEmailAndPassword, user, loading, error] =
     useSignInWithEmailAndPassword(auth);
   const [sendPasswordResetEmail, sending, resetError] =
@@ -21,7 +23,13 @@ const Login = () => {
     getValues,
     formState: { errors },
   } = useForm();
+  const [token] = useToken(user);
 
+  useEffect(() => {
+    if (token) {
+      navigate("/");
+    }
+  }, [token, navigate]);
   const onSubmit = (data) => {
     signInWithEmailAndPassword(data.email, data.password);
   };
@@ -38,7 +46,7 @@ const Login = () => {
   if (loading || sending) {
     return <Loading />;
   }
-  
+
   return (
     <div className="flex min-h-screen items-center justify-center mt-10">
       <div className="card w-96 bg-base-100 shadow-xl border">

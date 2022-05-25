@@ -8,11 +8,10 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import auth from "../../firebase-init";
 import Loading from "../shared/Loading";
 import SocialLogin from "./SocialLogin";
+import useToken from "../../hooks/useToken";
 
 const Register = () => {
   const navigate = useNavigate();
-  const location = useLocation();
-  const from = location.state?.from?.pathname || "/";
   const {
     register,
     handleSubmit,
@@ -22,10 +21,16 @@ const Register = () => {
   const [createUserWithEmailAndPassword, user, loading, error] =
     useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
   const [updateProfile, updating, updateError] = useUpdateProfile(auth);
+  const [token] = useToken(user);
 
+  useEffect(() => {
+    if (token) {
+      navigate("/");
+    }
+  }, [token, navigate]);
 
   if (loading || updating) {
-    return <Loading/>;
+    return <Loading />;
   }
 
   const onSubmit = async (data) => {
