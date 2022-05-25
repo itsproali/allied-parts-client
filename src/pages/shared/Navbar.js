@@ -149,7 +149,7 @@ const Navbar = () => {
                 </li>
                 <li>
                   <button
-                    className="btn btn-accent btn-sm mt-2 text-white"
+                    className="btn btn-secondary mt-2 text-white"
                     onClick={logOut}
                   >
                     Logout

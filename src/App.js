@@ -14,6 +14,7 @@ import Parts from "./pages/Parts/Parts";
 import ScrollToTop from "./pages/shared/ScrollToTop";
 import Reviews from "./pages/Review/Reviews";
 import Purchase from "./pages/Parts/Purchase";
+import RequireAuth from "./pages/shared/RequireAuth";
 
 function App() {
   return (
@@ -23,7 +24,14 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />}></Route>
         <Route path="/parts" element={<Parts />}></Route>
-        <Route path="/purchase/:itemId" element={<Purchase />}></Route>
+        <Route
+          path="/purchase/:itemId"
+          element={
+            <RequireAuth>
+              <Purchase />
+            </RequireAuth>
+          }
+        ></Route>
         <Route path="/reviews" element={<Reviews />}></Route>
         <Route path="/blog" element={<Blog />}></Route>
         <Route path="/portfolio" element={<Portfolio />}></Route>

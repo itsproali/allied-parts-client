@@ -6,8 +6,8 @@ import { AiOutlineCheckCircle } from "react-icons/ai";
 
 const Choose = () => {
   return (
-    <div className="parent">
-      <div className="hero min-h-screen">
+    <div className="parent mb-16">
+      <div className="hero">
         <div className="hero-content flex-col lg:flex-row">
           <img
             src={whyChoose}

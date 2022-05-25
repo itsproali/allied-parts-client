@@ -12,6 +12,8 @@ import useToken from "../../hooks/useToken";
 
 const Register = () => {
   const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
   const {
     register,
     handleSubmit,
@@ -25,9 +27,9 @@ const Register = () => {
 
   useEffect(() => {
     if (token) {
-      navigate("/");
+      navigate(from, {replace: true});
     }
-  }, [token, navigate]);
+  }, [token, navigate, from]);
 
   if (loading || updating) {
     return <Loading />;
