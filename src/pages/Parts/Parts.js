@@ -7,9 +7,9 @@ import GrdButton from "../shared/GrdButton";
 
 const Parts = () => {
   const location = useLocation();
-  let url = "http://localhost:5000/parts";
+  let url = "https://allied-parts-manufacturing.herokuapp.com/parts";
   if (location.pathname === "/") {
-    url = "http://localhost:5000/parts/3";
+    url = "https://allied-parts-manufacturing.herokuapp.com/parts/3";
   }
   const { data: parts, isLoading } = useQuery("parts", () =>
     apiClient.get(url)
