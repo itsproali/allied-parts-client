@@ -15,6 +15,7 @@ import ScrollToTop from "./pages/shared/ScrollToTop";
 import Reviews from "./pages/Review/Reviews";
 import Purchase from "./pages/Parts/Purchase";
 import RequireAuth from "./pages/shared/RequireAuth";
+import { Toaster } from "react-hot-toast";
 
 function App() {
   return (
@@ -22,8 +23,8 @@ function App() {
       <ScrollToTop />
       <Navbar />
       <Routes>
-        <Route path="/" element={<Home />}></Route>
-        <Route path="/parts" element={<Parts />}></Route>
+        <Route path="/" element={<Home />} />
+        <Route path="/parts" element={<Parts />} />
         <Route
           path="/purchase/:itemId"
           element={
@@ -31,16 +32,17 @@ function App() {
               <Purchase />
             </RequireAuth>
           }
-        ></Route>
-        <Route path="/reviews" element={<Reviews />}></Route>
-        <Route path="/blog" element={<Blog />}></Route>
-        <Route path="/portfolio" element={<Portfolio />}></Route>
-        <Route path="/login" element={<Login />}></Route>
-        <Route path="/register" element={<Register />}></Route>
-        <Route path="/loading" element={<Loading />}></Route>
-        <Route path="*" element={<Notfound />}></Route>
+        />
+        <Route path="/reviews" element={<Reviews />} />
+        <Route path="/blog" element={<Blog />} />
+        <Route path="/portfolio" element={<Portfolio />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/loading" element={<Loading />} />
+        <Route path="*" element={<Notfound />} />
       </Routes>
       <Footer />
+      <Toaster />
     </div>
   );
 }

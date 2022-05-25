@@ -68,8 +68,6 @@ const Navbar = () => {
 
   return (
     <div
-      // data-aos="fade-down"
-      // data-aos-duration="500"
       className={`parent visible ${show && "hidden"} ${
         window.scrollY > 200 ? "bg-white shadow-lg border-b" : "text-gray-300"
       } ${location.pathname !== "/" && "bg-white shadow-lg text-black"}`}
