@@ -1,11 +1,12 @@
 import React from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useQuery } from "react-query";
 import Loading from "../shared/Loading";
 import apiClient from "../../apiClient";
 import GrdButton from "../shared/GrdButton";
 
 const Parts = () => {
+  const navigate = useNavigate();
   const location = useLocation();
   let url = "https://allied-parts-manufacturing.herokuapp.com/parts";
   if (location.pathname === "/") {
@@ -40,7 +41,12 @@ const Parts = () => {
               <p className="text-2xl font-semibold">
                 Price: {item.price} <span className="text-xs">(per piece)</span>
               </p>
-              <GrdButton className="w-full mt-4">Purchase</GrdButton>
+              <GrdButton
+                className="w-full mt-4"
+                onClick={() => navigate(`/purchase/${item._id}`)}
+              >
+                Purchase
+              </GrdButton>
             </div>
           </div>
         ))}

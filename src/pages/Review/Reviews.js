@@ -18,7 +18,6 @@ const Reviews = () => {
   if (isLoading) {
     return <Loading></Loading>;
   }
-  console.log(reviews);
 
   return (
     <div className="parent my-24">
