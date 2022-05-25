@@ -7,9 +7,9 @@ import { FaStar, FaStarHalfAlt } from "react-icons/fa";
 
 const Reviews = () => {
   const location = useLocation();
-  let url = "http://localhost:5000/reviews";
+  let url = "https://allied-parts-manufacturing.herokuapp.com/reviews";
   if (location.pathname === "/") {
-    url = "http://localhost:5000/review/6";
+    url = "https://allied-parts-manufacturing.herokuapp.com/review/6";
   }
   const { data: reviews, isLoading } = useQuery("reviews", () =>
     apiClient.get(url)

@@ -16,6 +16,9 @@ import Reviews from "./pages/Review/Reviews";
 import Purchase from "./pages/Parts/Purchase";
 import RequireAuth from "./pages/shared/RequireAuth";
 import { Toaster } from "react-hot-toast";
+import Dashboard from "./pages/Dashboard/Dashboard";
+import MyOrders from "./pages/Dashboard/MyOrders";
+import AddReview from "./pages/Dashboard/AddReview";
 
 function App() {
   return (
@@ -33,6 +36,17 @@ function App() {
             </RequireAuth>
           }
         />
+        <Route
+          path="/dashboard"
+          element={
+            <RequireAuth>
+              <Dashboard />
+            </RequireAuth>
+          }
+        >
+          <Route index element={<MyOrders />} />
+          <Route path="add-review" element={<AddReview />} />
+        </Route>
         <Route path="/reviews" element={<Reviews />} />
         <Route path="/blog" element={<Blog />} />
         <Route path="/portfolio" element={<Portfolio />} />

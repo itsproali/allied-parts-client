@@ -6,14 +6,17 @@ const PaymentModal = ({ orderDetails, setModal }) => {
   const navigate = useNavigate();
   const handlePayment = (paid) => {
     orderDetails.paid = paid;
-    fetch(`http://localhost:5000/order/${orderDetails._id}`, {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-      },
-      body: JSON.stringify(orderDetails),
-    })
+    fetch(
+      `https://allied-parts-manufacturing.herokuapp.com/order/${orderDetails._id}`,
+      {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+          authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+        },
+        body: JSON.stringify(orderDetails),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         if (paid === true) {
@@ -34,8 +37,8 @@ const PaymentModal = ({ orderDetails, setModal }) => {
             Are you sure? you want to place this order?
           </h3>
           <p className="py-4">
-            You are on the way to payment. Click "Pay Now" for pay instantly. Click
-            "Pay Later" for later Payment.
+            You are on the way to payment. Click "Pay Now" for pay instantly.
+            Click "Pay Later" for later Payment.
           </p>
           <div className="modal-action">
             <label
@@ -46,11 +49,10 @@ const PaymentModal = ({ orderDetails, setModal }) => {
               Pay Now
             </label>
             <button
-            className="btn btn-outline btn-ghost"
+              className="btn btn-outline btn-ghost"
               onClick={() => {
                 setModal(false);
                 handlePayment(false);
-                
               }}
             >
               Pay Later

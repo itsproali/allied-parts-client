@@ -24,7 +24,9 @@ const Purchase = () => {
     isLoading,
     status,
   } = useQuery("item", () =>
-    apiClient.get(`http://localhost:5000/item/${itemId.itemId}`)
+    apiClient.get(
+      `https://allied-parts-manufacturing.herokuapp.com/item/${itemId.itemId}`
+    )
   );
 
   if (isLoading) {
