@@ -4,6 +4,7 @@ import { useQuery } from "react-query";
 import Loading from "../shared/Loading";
 import apiClient from "../../apiClient";
 import GrdButton from "../shared/GrdButton";
+// import toast from "react-hot-toast";
 
 const Parts = () => {
   const navigate = useNavigate();
@@ -12,12 +13,20 @@ const Parts = () => {
   if (location.pathname === "/") {
     url = "https://allied-parts-manufacturing.herokuapp.com/parts/3";
   }
-  const { data: parts, isLoading } = useQuery("parts", () =>
-    apiClient.get(url)
-  );
+  const {
+    data: parts,
+    isLoading,
+    isError,
+    error,
+  } = useQuery("parts", () => apiClient.get(url));
 
   if (isLoading) {
     return <Loading />;
+  }
+
+  if (isError) {
+    console.log(error);
+    navigate("/");
   }
 
   return (

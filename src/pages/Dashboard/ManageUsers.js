@@ -5,12 +5,16 @@ import { useQuery } from "react-query";
 import apiClient from "../../apiClient";
 import auth from "../../firebase-init";
 import Loading from "../shared/Loading";
+import { useNavigate } from "react-router-dom";
 
 const ManageUsers = () => {
+  const navigate = useNavigate();
   const [loggedUser] = useAuthState(auth);
   const {
     data: users,
     isLoading,
+    isError,
+    error,
     refetch,
   } = useQuery("users", () =>
     apiClient.get("https://allied-parts-manufacturing.herokuapp.com/users")
@@ -18,6 +22,11 @@ const ManageUsers = () => {
 
   if (isLoading) {
     return <Loading />;
+  }
+
+  if (isError) {
+    console.log(error);
+    navigate("/");
   }
 
   const handleDelete = async (uid) => {

@@ -1,22 +1,31 @@
 import React from "react";
 import { useQuery } from "react-query";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import apiClient from "../../apiClient";
 import Loading from "../shared/Loading";
 import { FaRegStar, FaStar } from "react-icons/fa";
 
 const Reviews = () => {
+  const navigate = useNavigate();
   const location = useLocation();
   let url = "https://allied-parts-manufacturing.herokuapp.com/reviews";
   if (location.pathname === "/") {
     url = "https://allied-parts-manufacturing.herokuapp.com/review/6";
   }
-  const { data: reviews, isLoading } = useQuery("reviews", () =>
-    apiClient.get(url)
-  );
+  const {
+    data: reviews,
+    isLoading,
+    isError,
+    error,
+  } = useQuery("reviews", () => apiClient.get(url));
 
   if (isLoading) {
     return <Loading></Loading>;
+  }
+
+  if (isError) {
+    console.log(error);
+    navigate("/");
   }
 
   return (

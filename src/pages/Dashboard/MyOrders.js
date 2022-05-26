@@ -5,12 +5,17 @@ import apiClient from "../../apiClient";
 import auth from "../../firebase-init";
 import Loading from "../shared/Loading";
 import Swal from "sweetalert2";
+import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 const MyOrders = () => {
+  const navigate = useNavigate();
   const [user] = useAuthState(auth);
   const {
     data: myOrders,
     isLoading,
+    isError,
+    error,
     refetch,
   } = useQuery("myOrders", () =>
     apiClient.get(
@@ -27,6 +32,11 @@ const MyOrders = () => {
 
   if (isLoading) {
     return <Loading />;
+  }
+
+  if (isError) {
+    toast.error(`${error.message}`);
+    navigate("/");
   }
 
   return (

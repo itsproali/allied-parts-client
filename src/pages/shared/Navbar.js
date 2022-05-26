@@ -54,8 +54,8 @@ const Navbar = () => {
         </NavLink>
       </li>
       <li>
-        <NavLink className={`btn-md font-medium`} to="/contact">
-          Contact Us
+        <NavLink className={`btn-md font-medium`} to="/blog">
+          Blog
         </NavLink>
       </li>
       <li>

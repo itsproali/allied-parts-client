@@ -8,8 +8,10 @@ import toast from "react-hot-toast";
 import Loading from "../shared/Loading";
 import { signOut } from "firebase/auth";
 import PaymentModal from "./PaymentModal";
+import { useNavigate } from "react-router-dom";
 
 const Purchase = () => {
+  const navigate = useNavigate();
   const itemId = useParams();
   const [user] = useAuthState(auth);
   const [userName, setUserName] = useState(user?.displayName);
@@ -22,6 +24,8 @@ const Purchase = () => {
   const {
     data: item,
     isLoading,
+    isError,
+    error,
     status,
   } = useQuery("item", () =>
     apiClient.get(
@@ -31,6 +35,11 @@ const Purchase = () => {
 
   if (isLoading) {
     return <Loading />;
+  }
+
+  if (isError) {
+    console.log(error)
+    navigate("/");
   }
 
   if (status === "error") {

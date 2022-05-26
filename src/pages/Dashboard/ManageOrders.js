@@ -4,11 +4,15 @@ import apiClient from "../../apiClient";
 import Loading from "../shared/Loading";
 import Swal from "sweetalert2";
 import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 const ManageOrders = () => {
+  const navigate = useNavigate();
   const {
     data: orders,
     isLoading,
+    isError,
+    error,
     refetch,
   } = useQuery("orders", () =>
     apiClient.get("https://allied-parts-manufacturing.herokuapp.com/orders")
@@ -31,6 +35,11 @@ const ManageOrders = () => {
 
   if (isLoading) {
     return <Loading />;
+  }
+
+  if (isError) {
+    toast.error(`${error.message}`);
+    navigate("/");
   }
 
   console.log(orders.data);
