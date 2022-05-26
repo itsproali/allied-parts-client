@@ -16,7 +16,6 @@ const AddReview = () => {
     const uid = user.uid;
 
     const review = { name, description, rating, uid };
-    console.log(review);
     const { data } = await apiClient.post(
       `https://allied-parts-manufacturing.herokuapp.com/add-review/${uid}`,
       { review }

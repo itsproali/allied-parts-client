@@ -19,8 +19,19 @@ import { Toaster } from "react-hot-toast";
 import Dashboard from "./pages/Dashboard/Dashboard";
 import MyOrders from "./pages/Dashboard/MyOrders";
 import AddReview from "./pages/Dashboard/AddReview";
+import RequireAdmin from "./pages/shared/RequireAdmin";
+import ManageProducts from "./pages/Dashboard/ManageProducts";
+import useAdmin from "./hooks/useAdmin";
+import { useAuthState } from "react-firebase-hooks/auth";
+import auth from "./firebase-init";
+import ManageOrders from "./pages/Dashboard/ManageOrders";
 
 function App() {
+  const [user] = useAuthState(auth);
+  const [admin, adminLoading] = useAdmin(user);
+  if (adminLoading) {
+    return <Loading />;
+  }
   return (
     <div>
       <ScrollToTop />
@@ -44,8 +55,27 @@ function App() {
             </RequireAuth>
           }
         >
-          <Route index element={<MyOrders />} />
+          {admin ? (
+            <Route
+              index
+              element={
+                <RequireAdmin>
+                  <ManageOrders />
+                </RequireAdmin>
+              }
+            />
+          ) : (
+            <Route index element={<MyOrders />} />
+          )}
           <Route path="add-review" element={<AddReview />} />
+          <Route
+              path="manage-products"
+              element={
+                <RequireAdmin>
+                  <ManageProducts />
+                </RequireAdmin>
+              }
+            />
         </Route>
         <Route path="/reviews" element={<Reviews />} />
         <Route path="/blog" element={<Blog />} />
