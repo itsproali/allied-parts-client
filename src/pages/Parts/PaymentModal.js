@@ -22,7 +22,7 @@ const PaymentModal = ({ orderDetails, setModal }) => {
         if (status === "Pending") {
           toast.success("Successfully Paid");
         } else {
-          toast.success("Added to Unpaid List");
+          toast.success("Added to Order List");
         }
         navigate("/");
       });

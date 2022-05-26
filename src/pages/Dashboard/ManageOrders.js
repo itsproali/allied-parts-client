@@ -51,6 +51,7 @@ const ManageOrders = () => {
             <tr>
               <th></th>
               <th>Name</th>
+              <th>Email</th>
               <th>Status</th>
               <th>Change Status</th>
               <th>Option</th>
@@ -61,17 +62,16 @@ const ManageOrders = () => {
               <tr key={order._id}>
                 <td>{index + 1}</td>
                 <td>{order.itemTitle}</td>
+                <td>{order.userEmail}</td>
                 <td>{order.status}</td>
                 <td>
-                  {order.status === "Pending" && (
-                    <button
-                      className="btn btn-xs"
-                      disabled={order.status !== "Shifted"}
-                      onClick={() => handleShift(order._id)}
-                    >
-                      Shift
-                    </button>
-                  )}
+                  <button
+                    className="btn btn-xs"
+                    disabled={order.status !== "Pending"}
+                    onClick={() => handleShift(order._id)}
+                  >
+                    Shift
+                  </button>
                 </td>
                 <td>
                   <button

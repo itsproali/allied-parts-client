@@ -23,6 +23,12 @@ const MyOrders = () => {
     )
   );
 
+  const handlePayment = (orderId) => {
+    apiClient.put(
+      `https://allied-parts-manufacturing.herokuapp.com/payment/${orderId}`
+    );
+  };
+
   const handleCancel = (orderId) => {
     apiClient.delete(
       `https://allied-parts-manufacturing.herokuapp.com/delete/${orderId}`
@@ -50,9 +56,10 @@ const MyOrders = () => {
             <tr>
               <th></th>
               <th>Name</th>
-              <th>Quantity</th>
+              <th>Price</th>
               <th>Status</th>
               <th>Option</th>
+              <th>Action</th>
             </tr>
           </thead>
           <tbody>
@@ -60,8 +67,37 @@ const MyOrders = () => {
               <tr key={order._id}>
                 <th>{index + 1}</th>
                 <td>{order.itemTitle}</td>
-                <td>{order.quantity}</td>
+                <td>{order.total}</td>
                 <td>{order.status}</td>
+                <td>
+                  <button
+                    className="btn btn-xs"
+                    disabled={order.status !== "Unpaid"}
+                    // Payment Modal
+                    onClick={() =>
+                      Swal.fire({
+                        title: "We are happy to see you again",
+                        text: "Your purchase our happiness",
+                        icon: "info",
+                        showCancelButton: true,
+                        confirmButtonColor: "#3085d6",
+                        cancelButtonColor: "#d33",
+                        confirmButtonText: "Pay Now",
+                      }).then((result) => {
+                        if (result.isConfirmed) {
+                          Swal.fire(
+                            "Paid",
+                            "Your order paid Successfully",
+                            "success",
+                            handlePayment(order._id)
+                          );
+                        }
+                      })
+                    }
+                  >
+                    Pay Now
+                  </button>
+                </td>
                 <td>
                   <button
                     className="btn btn-xs"

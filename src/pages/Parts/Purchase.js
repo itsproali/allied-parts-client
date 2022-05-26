@@ -19,6 +19,7 @@ const Purchase = () => {
   const [quantity, setQuantity] = useState(100);
   const [address, setAddress] = useState("");
   const [phone, setPhone] = useState("");
+  const [total, setTotal] = useState(0);
   const [modal, setModal] = useState(false);
   const [orderDetails, setOrderDetails] = useState({});
   const {
@@ -38,7 +39,7 @@ const Purchase = () => {
   }
 
   if (isError) {
-    console.log(error)
+    console.log(error);
     navigate("/");
   }
 
@@ -52,14 +53,15 @@ const Purchase = () => {
   const { _id, title, description, img, available, minimum, price } =
     item?.data;
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     const uid = user?.uid;
+    await setTotal(quantity * price);
     const details = {
       uid,
       itemId: _id,
       userName,
       userEmail,
-      quantity,
+      total,
       address,
       phone,
       itemTitle: title,

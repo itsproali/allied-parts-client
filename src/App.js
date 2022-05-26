@@ -26,6 +26,8 @@ import ManageOrders from "./pages/Dashboard/ManageOrders";
 import Contact from "./pages/Contact/Contact";
 import ManageUsers from "./pages/Dashboard/ManageUsers";
 import MyProfile from "./pages/Dashboard/MyProfile";
+import EditProfile from "./pages/Dashboard/EditProfile";
+import AddItem from "./pages/Dashboard/AddItem";
 
 function App() {
   const [admin, adminLoading] = useAdmin();
@@ -85,11 +87,27 @@ function App() {
             }
           />
         </Route>
+          <Route
+            path="/add-item"
+            element={
+              <RequireAdmin>
+                <AddItem />
+              </RequireAdmin>
+            }
+          />
         <Route
           path="/my-profile"
           element={
             <RequireAuth>
               <MyProfile />
+            </RequireAuth>
+          }
+        />
+        <Route
+          path="/edit/:uid"
+          element={
+            <RequireAuth>
+              <EditProfile />
             </RequireAuth>
           }
         />
