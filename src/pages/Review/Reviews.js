@@ -3,7 +3,7 @@ import { useQuery } from "react-query";
 import { Link, useLocation } from "react-router-dom";
 import apiClient from "../../apiClient";
 import Loading from "../shared/Loading";
-import { FaStar, FaStarHalfAlt } from "react-icons/fa";
+import { FaRegStar, FaStar } from "react-icons/fa";
 
 const Reviews = () => {
   const location = useLocation();
@@ -28,7 +28,7 @@ const Reviews = () => {
         {reviews?.data?.map((review) => (
           <div
             key={review._id}
-            className="shadow-lg rounded-xl p-6 flex flex-col items-center border my-8 hover:bg-primary duration-300 cursor-pointer hover:text-white"
+            className="shadow-lg rounded-xl p-6 flex flex-col items-center border my-8 hover:bg-purple-800 duration-300 cursor-pointer hover:text-white"
           >
             <div className="mt-[-50px] btn-circle bg-secondary text-white flex items-center justify-center w-16 h-16">
               <h1 className="text-3xl">{review.rating}</h1>
@@ -36,20 +36,31 @@ const Reviews = () => {
             <h2 className="text-2xl font-semibold mt-2">Name: {review.name}</h2>
             <p className=" ">{review.description}</p>
             <div className="flex items-center mt-4">
-              <FaStar className="text-secondary"></FaStar>
-              {review.rating > 1 && (
-                <FaStar className="text-secondary"></FaStar>
-              )}
-              {review.rating > 2 && (
-                <FaStar className="text-secondary"></FaStar>
-              )}
-              {review.rating > 3 && (
-                <FaStar className="text-secondary"></FaStar>
-              )}
-              {review.rating === 5 ? (
+              {review.rating >= "1" ? (
                 <FaStar className="text-secondary"></FaStar>
               ) : (
-                <FaStarHalfAlt className="text-secondary"></FaStarHalfAlt>
+                <FaRegStar className="text-secondary"></FaRegStar>
+              )}
+              {review.rating >= "2" ? (
+                <FaStar className="text-secondary"></FaStar>
+              ) : (
+                <FaRegStar className="text-secondary"></FaRegStar>
+              )}
+              {review.rating >= "3" ? (
+                <FaStar className="text-secondary"></FaStar>
+              ) : (
+                <FaRegStar className="text-secondary"></FaRegStar>
+              )}
+              {review.rating >= "4" ? (
+                <FaStar className="text-secondary"></FaStar>
+              ) : (
+                <FaRegStar className="text-secondary"></FaRegStar>
+              )}
+
+              {review.rating >= "5" ? (
+                <FaStar className="text-secondary"></FaStar>
+              ) : (
+                <FaRegStar className="text-secondary"></FaRegStar>
               )}
             </div>
           </div>

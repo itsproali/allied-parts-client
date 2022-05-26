@@ -86,7 +86,7 @@ const Purchase = () => {
           <h1 className="text-3xl text-center text-primary mb-6">
             Purchase Info
           </h1>
-          <form onSubmit={handleSubmit}>
+          <form>
             <div className="form-control w-full my-3">
               <label className="label">
                 <span className="label-text">Name</span>

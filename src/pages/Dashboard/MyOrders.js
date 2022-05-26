@@ -19,7 +19,9 @@ const MyOrders = () => {
   );
 
   const handleCancel = (orderId) => {
-    apiClient.delete(`http://localhost:5000/delete/${orderId}`);
+    apiClient.delete(
+      `https://allied-parts-manufacturing.herokuapp.com/delete/${orderId}`
+    );
     refetch();
   };
 
