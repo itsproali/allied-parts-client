@@ -54,7 +54,7 @@ const Purchase = () => {
       address,
       phone,
       itemTitle: title,
-      paid: false,
+      status: "Unpaid",
     };
     setOrderDetails(details);
   };

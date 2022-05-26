@@ -51,12 +51,13 @@ const MyOrders = () => {
                 <th>{index + 1}</th>
                 <td>{order.itemTitle}</td>
                 <td>{order.quantity}</td>
-                <td>{order.paid === true ? "Paid" : "Unpaid"}</td>
+                <td>{order.status}</td>
                 <td>
                   <button
                     className="btn btn-xs"
-                    disabled={order.paid === true}
+                    disabled={order.status !== "Unpaid"}
                     onClick={() =>
+                      // Modal
                       Swal.fire({
                         title: "Are you sure?",
                         text: "You won't be able to revert this!",
@@ -64,11 +65,11 @@ const MyOrders = () => {
                         showCancelButton: true,
                         confirmButtonColor: "#3085d6",
                         cancelButtonColor: "#d33",
-                        confirmButtonText: "Cancel Order",
+                        confirmButtonText: "Delete Order",
                       }).then((result) => {
                         if (result.isConfirmed) {
                           Swal.fire(
-                            "Canceled",
+                            "Deleted",
                             "Your order has been deleted.",
                             "success",
                             handleCancel(order._id)

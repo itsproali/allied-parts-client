@@ -4,8 +4,8 @@ import { useNavigate } from "react-router-dom";
 
 const PaymentModal = ({ orderDetails, setModal }) => {
   const navigate = useNavigate();
-  const handlePayment = (paid) => {
-    orderDetails.paid = paid;
+  const handlePayment = (status) => {
+    orderDetails.status = status;
     fetch(
       `https://allied-parts-manufacturing.herokuapp.com/order/${orderDetails._id}`,
       {
@@ -19,7 +19,7 @@ const PaymentModal = ({ orderDetails, setModal }) => {
     )
       .then((res) => res.json())
       .then((data) => {
-        if (paid === true) {
+        if (status === "Pending") {
           toast.success("Successfully Paid");
         } else {
           toast.success("Added to Unpaid List");
@@ -42,7 +42,7 @@ const PaymentModal = ({ orderDetails, setModal }) => {
           </p>
           <div className="modal-action">
             <label
-              onClick={() => handlePayment(true)}
+              onClick={() => handlePayment("Pending")}
               htmlFor="payment-modal"
               className="btn btn-secondary"
             >
@@ -52,7 +52,7 @@ const PaymentModal = ({ orderDetails, setModal }) => {
               className="btn btn-outline btn-ghost"
               onClick={() => {
                 setModal(false);
-                handlePayment(false);
+                handlePayment("Unpaid");
               }}
             >
               Pay Later

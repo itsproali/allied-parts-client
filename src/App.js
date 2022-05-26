@@ -69,13 +69,13 @@ function App() {
           )}
           <Route path="add-review" element={<AddReview />} />
           <Route
-              path="manage-products"
-              element={
-                <RequireAdmin>
-                  <ManageProducts />
-                </RequireAdmin>
-              }
-            />
+            path="manage-products"
+            element={
+              <RequireAdmin>
+                <ManageProducts />
+              </RequireAdmin>
+            }
+          />
         </Route>
         <Route path="/reviews" element={<Reviews />} />
         <Route path="/blog" element={<Blog />} />

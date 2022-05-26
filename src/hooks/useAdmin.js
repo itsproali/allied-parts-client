@@ -6,7 +6,7 @@ const useAdmin = (user) => {
   const uid = user?.uid;
   useEffect(() => {
     if (uid) {
-      fetch(`http://localhost:5000/admin/${uid}`)
+      fetch(`https://allied-parts-manufacturing.herokuapp.com/admin/${uid}`)
         .then((res) => res.json())
         .then((data) => {
           setAdmin(data.admin);
