@@ -13,7 +13,7 @@ const useToken = (user) => {
         const photoURL = user?.user?.photoURL;
         let loggedUser;
         loggedUser = { uid, email, displayName, photoURL };
-        const { data } = await axios.put(`http://allied-parts-manufacturing.herokuapp.com/user/${uid}`, {
+        const { data } = await axios.put(`https://allied-parts-manufacturing.herokuapp.com/user/${uid}`, {
           loggedUser,
         });
 

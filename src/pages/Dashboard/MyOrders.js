@@ -4,14 +4,24 @@ import { useQuery } from "react-query";
 import apiClient from "../../apiClient";
 import auth from "../../firebase-init";
 import Loading from "../shared/Loading";
+import Swal from "sweetalert2";
 
 const MyOrders = () => {
   const [user] = useAuthState(auth);
-  const { data: myOrders, isLoading } = useQuery("myOrders", () =>
+  const {
+    data: myOrders,
+    isLoading,
+    refetch,
+  } = useQuery("myOrders", () =>
     apiClient.get(
       `https://allied-parts-manufacturing.herokuapp.com/my-order?uid=${user?.uid}`
     )
   );
+
+  const handleCancel = (orderId) => {
+    apiClient.delete(`http://localhost:5000/delete/${orderId}`);
+    refetch();
+  };
 
   if (isLoading) {
     return <Loading />;
@@ -30,6 +40,7 @@ const MyOrders = () => {
               <th>Name</th>
               <th>Quantity</th>
               <th>Status</th>
+              <th>Option</th>
             </tr>
           </thead>
           <tbody>
@@ -39,6 +50,34 @@ const MyOrders = () => {
                 <td>{order.itemTitle}</td>
                 <td>{order.quantity}</td>
                 <td>{order.paid === true ? "Paid" : "Unpaid"}</td>
+                <td>
+                  <button
+                    className="btn btn-xs"
+                    disabled={order.paid === true}
+                    onClick={() =>
+                      Swal.fire({
+                        title: "Are you sure?",
+                        text: "You won't be able to revert this!",
+                        icon: "warning",
+                        showCancelButton: true,
+                        confirmButtonColor: "#3085d6",
+                        cancelButtonColor: "#d33",
+                        confirmButtonText: "Cancel Order",
+                      }).then((result) => {
+                        if (result.isConfirmed) {
+                          Swal.fire(
+                            "Canceled",
+                            "Your order has been deleted.",
+                            "success",
+                            handleCancel(order._id)
+                          );
+                        }
+                      })
+                    }
+                  >
+                    Cancel
+                  </button>
+                </td>
               </tr>
             ))}
           </tbody>
