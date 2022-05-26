@@ -24,6 +24,7 @@ import ManageProducts from "./pages/Dashboard/ManageProducts";
 import useAdmin from "./hooks/useAdmin";
 import ManageOrders from "./pages/Dashboard/ManageOrders";
 import Contact from "./pages/Contact/Contact";
+import ManageUsers from "./pages/Dashboard/ManageUsers";
 
 function App() {
   const [admin, adminLoading] = useAdmin();
@@ -71,6 +72,14 @@ function App() {
             element={
               <RequireAdmin>
                 <ManageProducts />
+              </RequireAdmin>
+            }
+          />
+          <Route
+            path="manage-users"
+            element={
+              <RequireAdmin>
+                <ManageUsers />
               </RequireAdmin>
             }
           />

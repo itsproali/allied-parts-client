@@ -47,7 +47,16 @@ const Dashboard = () => {
               location.pathname === "/dashboard" && "border-b-primary"
             }`}
           >
-            Manage Orders
+            Orders
+          </Link>
+
+          <Link
+            to="/dashboard/manage-users"
+            className={`border-b-2 p-3 mx-3 ${
+              location.pathname === "/dashboard/manage-users" && "border-b-primary"
+            }`}
+          >
+            Users
           </Link>
 
           <Link
