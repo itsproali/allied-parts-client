@@ -4,6 +4,7 @@ import Reviews from "../Review/Reviews";
 import Achievement from "./Achievement";
 import Banner from "./Banner";
 import Choose from "./Choose";
+import Contact from "../Contact/Contact";
 
 const Home = () => {
   return (
@@ -13,6 +14,7 @@ const Home = () => {
       <Choose />
       <Achievement />
       <Reviews />
+      <Contact />
     </div>
   );
 };

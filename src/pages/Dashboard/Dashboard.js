@@ -1,14 +1,11 @@
 import React, { useEffect } from "react";
-import { useAuthState } from "react-firebase-hooks/auth";
 import { Link, Outlet, useLocation } from "react-router-dom";
-import auth from "../../firebase-init";
 import useAdmin from "../../hooks/useAdmin";
 import Loading from "../shared/Loading";
 
 const Dashboard = () => {
   const location = useLocation();
-  const [user] = useAuthState(auth);
-  const [admin, adminLoading] = useAdmin(user);
+  const [admin, adminLoading] = useAdmin();
   useEffect(() => {
     console.log(admin);
   }, [admin]);

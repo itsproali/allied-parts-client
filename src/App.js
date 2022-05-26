@@ -22,13 +22,11 @@ import AddReview from "./pages/Dashboard/AddReview";
 import RequireAdmin from "./pages/shared/RequireAdmin";
 import ManageProducts from "./pages/Dashboard/ManageProducts";
 import useAdmin from "./hooks/useAdmin";
-import { useAuthState } from "react-firebase-hooks/auth";
-import auth from "./firebase-init";
 import ManageOrders from "./pages/Dashboard/ManageOrders";
+import Contact from "./pages/Contact/Contact";
 
 function App() {
-  const [user] = useAuthState(auth);
-  const [admin, adminLoading] = useAdmin(user);
+  const [admin, adminLoading] = useAdmin();
   if (adminLoading) {
     return <Loading />;
   }
@@ -79,6 +77,7 @@ function App() {
         </Route>
         <Route path="/reviews" element={<Reviews />} />
         <Route path="/blog" element={<Blog />} />
+        <Route path="/contact" element={<Contact />} />
         <Route path="/portfolio" element={<Portfolio />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
