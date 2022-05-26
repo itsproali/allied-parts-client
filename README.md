@@ -9,3 +9,7 @@
 * Secured Admin Control
 * Wonderful user Dashboard
 * Fully Secured Database and many more
+
+## Admin Access:
+### Email: admin@allied.com
+### Password: Secret2022
