@@ -16,7 +16,7 @@ const Purchase = () => {
   const [user] = useAuthState(auth);
   const [userName, setUserName] = useState(user?.displayName);
   const [userEmail, setUserEmail] = useState(user?.email);
-  const [quantity, setQuantity] = useState(100);
+  const [quantity, setQuantity] = useState(0);
   const [address, setAddress] = useState("");
   const [phone, setPhone] = useState("");
   const [total, setTotal] = useState(0);
@@ -53,9 +53,11 @@ const Purchase = () => {
   const { _id, title, description, img, available, minimum, price } =
     item?.data;
 
-  const handleSubmit = async () => {
+  const handleSubmit = () => {
     const uid = user?.uid;
-    await setTotal(quantity * price);
+    // const multiplied = parseInt(quantity) * parseInt(price);
+    // setTotal(multiplied);
+    // console.log(multiplied);
     const details = {
       uid,
       itemId: _id,
@@ -67,6 +69,7 @@ const Purchase = () => {
       itemTitle: title,
       status: "Unpaid",
     };
+    console.log(total);
     setOrderDetails(details);
   };
 
@@ -133,12 +136,16 @@ const Purchase = () => {
                 <span className="label-text">Quantity</span>
               </label>
               <input
-                autoFocus
+                // autoFocus
                 type="number"
                 className="input input-bordered w-full focus:outline-secondary"
                 defaultValue={minimum}
                 name="quantity"
-                onBlur={(e) => setQuantity(e.target.value)}
+                onChange={async (e) => {
+                  await setQuantity(e.target.value);
+                  await setTotal(parseInt(e.target.value) * parseInt(price));
+                  console.log(total);
+                }}
                 placeholder="Enter quantity"
                 required
               />

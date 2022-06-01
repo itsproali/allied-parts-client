@@ -14,9 +14,7 @@ const Portfolio = () => {
         </div>
         <div data-aos="zoom-in-up" data-aos-duration="1500">
           <h1 className="active text-5xl font-semibold">Mohammad Ali</h1>
-          <h3
-            className="text-xl font-semibold text-primary"
-          >
+          <h3 className="text-xl font-semibold text-primary">
             Junior Front-end Developer
           </h3>
           <div className="text-slate-600 my-6">
@@ -44,59 +42,59 @@ const Portfolio = () => {
           Here is my Recent Projects
         </h1>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-          <div class="card bg-base-100 shadow-xl">
+          <div className="card bg-base-100 shadow-xl">
             <figure>
               <img
                 src="https://i.ibb.co/FDVj4b9/Screenshot-10.png"
                 alt="Website"
               />
             </figure>
-            <div class="card-body">
-              <h2 class="card-title">Caring Doctors</h2>
+            <div className="card-body">
+              <h2 className="card-title">Caring Doctors</h2>
               <p>
                 A Doctors Portal Website for Booking Appointment for patient.
               </p>
-              <div class="card-actions justify-end">
+              <div className="card-actions justify-end">
                 <a href="https://caring-doctors-portal.web.app/" target="blank">
-                  <button class="btn btn-primary">Visit Now</button>
+                  <button className="btn btn-primary">Visit Now</button>
                 </a>
               </div>
             </div>
           </div>
 
-          <div class="card bg-base-100 shadow-xl">
+          <div className="card bg-base-100 shadow-xl">
             <figure>
               <img
                 src="https://i.ibb.co/TgQxHfd/Screenshot-1.png"
                 alt="Website"
               />
             </figure>
-            <div class="card-body">
-              <h2 class="card-title">Super Bike Warehouse</h2>
+            <div className="card-body">
+              <h2 className="card-title">Super Bike Warehouse</h2>
               <p>A Warehouse Website for maintaining bike supply business.</p>
-              <div class="card-actions justify-end">
+              <div className="card-actions justify-end">
                 <a href="https://super-bike-warehouse.web.app//" target="blank">
-                  <button class="btn btn-primary">Visit Now</button>
+                  <button className="btn btn-primary">Visit Now</button>
                 </a>
               </div>
             </div>
           </div>
 
-          <div class="card bg-base-100 shadow-xl">
+          <div className="card bg-base-100 shadow-xl">
             <figure>
               <img
                 src="https://i.ibb.co/M8TZJ7F/Screenshot-2.png"
                 alt="Website"
               />
             </figure>
-            <div class="card-body">
-              <h2 class="card-title">Ema John</h2>
+            <div className="card-body">
+              <h2 className="card-title">Ema John</h2>
               <p>
                 An E-commerce website. Where you will be able to buy products.
               </p>
-              <div class="card-actions justify-end">
+              <div className="card-actions justify-end">
                 <a href="https://ema-john-itsproali.web.app/" target="blank">
-                  <button class="btn btn-primary">Visit Now</button>
+                  <button className="btn btn-primary">Visit Now</button>
                 </a>
               </div>
             </div>

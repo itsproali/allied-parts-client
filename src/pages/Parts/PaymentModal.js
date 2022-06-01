@@ -20,11 +20,11 @@ const PaymentModal = ({ orderDetails, setModal }) => {
       .then((res) => res.json())
       .then((data) => {
         if (status === "Pending") {
-          toast.success("Successfully Paid");
+          navigate(`/payment/${data.insertedId}`);
         } else {
           toast.success("Added to Order List");
+          navigate("/");
         }
-        navigate("/");
       });
   };
 

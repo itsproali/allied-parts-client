@@ -23,12 +23,6 @@ const MyOrders = () => {
     )
   );
 
-  const handlePayment = (orderId) => {
-    apiClient.put(
-      `https://allied-parts-manufacturing.herokuapp.com/payment/${orderId}`
-    );
-  };
-
   const handleCancel = (orderId) => {
     apiClient.delete(
       `https://allied-parts-manufacturing.herokuapp.com/delete/${orderId}`
@@ -57,6 +51,7 @@ const MyOrders = () => {
               <th></th>
               <th>Name</th>
               <th>Price</th>
+              <th>Txn ID</th>
               <th>Status</th>
               <th>Option</th>
               <th>Action</th>
@@ -68,6 +63,7 @@ const MyOrders = () => {
                 <th>{index + 1}</th>
                 <td>{order.itemTitle}</td>
                 <td>{order.total}</td>
+                <td>{order.transactionId}</td>
                 <td>{order.status}</td>
                 <td>
                   <button
@@ -85,12 +81,12 @@ const MyOrders = () => {
                         confirmButtonText: "Pay Now",
                       }).then((result) => {
                         if (result.isConfirmed) {
-                          Swal.fire(
-                            "Paid",
-                            "Your order paid Successfully",
-                            "success",
-                            handlePayment(order._id)
-                          );
+                          navigate(`/payment/${order._id}`);
+                          // Swal.fire(
+                          //   "Paid",
+                          //   "Your order paid Successfully",
+                          //   "success",
+                          // );
                         }
                       })
                     }
