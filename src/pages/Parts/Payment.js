@@ -14,9 +14,7 @@ const stripePromise = loadStripe(
 const Payment = () => {
   const { orderId } = useParams();
   const { data: order, isLoading } = useQuery("order", () =>
-    apiClient.get(
-      `https://allied-parts-manufacturing.herokuapp.com/order/${orderId}`
-    )
+    apiClient.get(`https://allied-parts-server.vercel.app/order/${orderId}`)
   );
   if (isLoading) {
     return <Loading />;

@@ -6,17 +6,14 @@ const PaymentModal = ({ orderDetails, setModal }) => {
   const navigate = useNavigate();
   const handlePayment = (status) => {
     orderDetails.status = status;
-    fetch(
-      `https://allied-parts-manufacturing.herokuapp.com/order/${orderDetails._id}`,
-      {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-          authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-        },
-        body: JSON.stringify(orderDetails),
-      }
-    )
+    fetch(`https://allied-parts-server.vercel.app/order/${orderDetails._id}`, {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+      },
+      body: JSON.stringify(orderDetails),
+    })
       .then((res) => res.json())
       .then((data) => {
         if (status === "Pending") {

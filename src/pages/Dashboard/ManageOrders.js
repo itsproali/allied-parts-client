@@ -15,20 +15,18 @@ const ManageOrders = () => {
     error,
     refetch,
   } = useQuery("orders", () =>
-    apiClient.get("https://allied-parts-manufacturing.herokuapp.com/orders")
+    apiClient.get("https://allied-parts-server.vercel.app/orders")
   );
 
   const handleCancel = (orderId) => {
     apiClient.delete(
-      `https://allied-parts-manufacturing.herokuapp.com/delete/${orderId}`
+      `https://allied-parts-server.vercel.app/delete/${orderId}`
     );
     refetch();
   };
 
   const handleShift = (orderId) => {
-    apiClient.put(
-      `https://allied-parts-manufacturing.herokuapp.com/shift/${orderId}`
-    );
+    apiClient.put(`https://allied-parts-server.vercel.app/shift/${orderId}`);
     toast.success("Product Shifted Successfully");
     refetch();
   };

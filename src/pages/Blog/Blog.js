@@ -10,7 +10,7 @@ const Blog = () => {
     isError,
     error,
   } = useQuery("blogs", () =>
-    apiClient.get("https://allied-parts-manufacturing.herokuapp.com/blogs")
+    apiClient.get("https://allied-parts-server.vercel.app/blogs")
   );
 
   if (isLoading) {

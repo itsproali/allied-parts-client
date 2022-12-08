@@ -13,7 +13,7 @@ const EditProfile = () => {
   const [loggedUser] = useAuthState(auth);
   const uid = loggedUser?.uid;
   const { data: user, isLoading } = useQuery("user", () =>
-    apiClient(`https://allied-parts-manufacturing.herokuapp.com/profile/${uid}`)
+    apiClient(`https://allied-parts-server.vercel.app/profile/${uid}`)
   );
 
   if (isLoading || loading) {
@@ -43,7 +43,7 @@ const EditProfile = () => {
       photoURL,
     };
     apiClient.put(
-      `https://allied-parts-manufacturing.herokuapp.com/profile-update/${uid}`,
+      `https://allied-parts-server.vercel.app/profile-update/${uid}`,
       { details }
     );
     setLoading(false);
@@ -63,7 +63,7 @@ const EditProfile = () => {
     //       console.log(result.data.url);
     //       const img = result.data.url;
     //       const details = { name, email, phone, address, linkedin, img };
-    //       apiClient.put(`https://allied-parts-manufacturing.herokuapp.com/profile/${uid}`, { details });
+    //       apiClient.put(`https://allied-parts-server.vercel.app/profile/${uid}`, { details });
     //       setLoading(false);
     //       toast.success("Profile Updated");
     //       navigate("/my-profile");

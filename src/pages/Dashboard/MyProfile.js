@@ -12,7 +12,7 @@ const MyProfile = () => {
   const [loggedUser] = useAuthState(auth);
   const uid = loggedUser?.uid;
   const { data: user, isLoading } = useQuery("user", () =>
-    apiClient(`https://allied-parts-manufacturing.herokuapp.com/profile/${uid}`)
+    apiClient(`https://allied-parts-server.vercel.app/profile/${uid}`)
   );
 
   if (isLoading) {

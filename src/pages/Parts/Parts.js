@@ -9,9 +9,9 @@ import GrdButton from "../shared/GrdButton";
 const Parts = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  let url = "https://allied-parts-manufacturing.herokuapp.com/parts";
+  let url = "https://allied-parts-server.vercel.app/parts";
   if (location.pathname === "/") {
-    url = "https://allied-parts-manufacturing.herokuapp.com/parts/3";
+    url = "https://allied-parts-server.vercel.app/parts/3";
   }
   const {
     data: parts,

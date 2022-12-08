@@ -17,7 +17,7 @@ const ManageUsers = () => {
     error,
     refetch,
   } = useQuery("users", () =>
-    apiClient.get("https://allied-parts-manufacturing.herokuapp.com/users")
+    apiClient.get("https://allied-parts-server.vercel.app/users")
   );
 
   if (isLoading) {
@@ -31,7 +31,7 @@ const ManageUsers = () => {
 
   const handleDelete = async (uid) => {
     await apiClient.delete(
-      `https://allied-parts-manufacturing.herokuapp.com/delete-user/${uid}`
+      `https://allied-parts-server.vercel.app/delete-user/${uid}`
     );
     await refetch();
     toast.success("User Deleted");
@@ -39,7 +39,7 @@ const ManageUsers = () => {
 
   const handleMakeAdmin = async (uid) => {
     await apiClient.put(
-      `https://allied-parts-manufacturing.herokuapp.com/make-admin/${uid}`
+      `https://allied-parts-server.vercel.app/make-admin/${uid}`
     );
     await refetch();
     toast.success("Admin Create Successfully");

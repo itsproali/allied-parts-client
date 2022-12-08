@@ -16,17 +16,14 @@ const CheckoutForm = ({ order }) => {
   const { total, userName, userEmail, _id } = order;
 
   useEffect(() => {
-    fetch(
-      "https://allied-parts-manufacturing.herokuapp.com/create-payment-intent",
-      {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-          authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-        },
-        body: JSON.stringify({ price: total }),
-      }
-    )
+    fetch("https://allied-parts-server.vercel.app/create-payment-intent", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+      },
+      body: JSON.stringify({ price: total }),
+    })
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
@@ -82,12 +79,9 @@ const CheckoutForm = ({ order }) => {
       setSuccess("Your Payment is Completed");
       setTransactionId(paymentIntent.id);
       console.log(transactionId);
-      apiClient.put(
-        `https://allied-parts-manufacturing.herokuapp.com/payment/${_id}`,
-        {
-          transactionId: paymentIntent.id,
-        }
-      );
+      apiClient.put(`https://allied-parts-server.vercel.app/payment/${_id}`, {
+        transactionId: paymentIntent.id,
+      });
       toast.success("Paid Successfully");
       navigate("/");
     }

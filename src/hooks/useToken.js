@@ -14,7 +14,7 @@ const useToken = (user) => {
         let loggedUser;
         loggedUser = { uid, email, displayName, photoURL };
         const { data } = await axios.put(
-          `https://allied-parts-manufacturing.herokuapp.com/user/${uid}`,
+          `https://allied-parts-server.vercel.app/user/${uid}`,
           {
             loggedUser,
           }

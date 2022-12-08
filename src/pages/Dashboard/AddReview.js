@@ -17,7 +17,7 @@ const AddReview = () => {
 
     const review = { name, description, rating, uid };
     const { data } = await apiClient.post(
-      `https://allied-parts-manufacturing.herokuapp.com/add-review/${uid}`,
+      `https://allied-parts-server.vercel.app/add-review/${uid}`,
       { review }
     );
     if (data) {

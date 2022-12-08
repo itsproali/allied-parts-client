@@ -30,7 +30,7 @@ const Purchase = () => {
     status,
   } = useQuery("item", () =>
     apiClient.get(
-      `https://allied-parts-manufacturing.herokuapp.com/item/${itemId.itemId}`
+      `https://allied-parts-server.vercel.app/item/${itemId.itemId}`
     )
   );
 

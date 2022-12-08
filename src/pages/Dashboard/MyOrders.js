@@ -19,13 +19,13 @@ const MyOrders = () => {
     refetch,
   } = useQuery("myOrders", () =>
     apiClient.get(
-      `https://allied-parts-manufacturing.herokuapp.com/my-order?uid=${user?.uid}`
+      `https://allied-parts-server.vercel.app/my-order?uid=${user?.uid}`
     )
   );
 
   const handleCancel = (orderId) => {
     apiClient.delete(
-      `https://allied-parts-manufacturing.herokuapp.com/delete/${orderId}`
+      `https://allied-parts-server.vercel.app/delete/${orderId}`
     );
     refetch();
   };

@@ -9,7 +9,7 @@ const useAdmin = () => {
   const uid = user?.uid;
   useEffect(() => {
     if (user) {
-      fetch(`https://allied-parts-manufacturing.herokuapp.com/admin/${uid}`)
+      fetch(`https://allied-parts-server.vercel.app/admin/${uid}`)
         .then((res) => res.json())
         .then((data) => {
           setAdmin(data.admin);

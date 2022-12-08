@@ -31,7 +31,7 @@ const AddItem = () => {
       img: e.target.image.value,
     };
     // Add Product To Database
-    fetch(`https://allied-parts-manufacturing.herokuapp.com/add-item`, {
+    fetch(`https://allied-parts-server.vercel.app/add-item`, {
       method: "POST",
       headers: {
         "content-type": "application/json",

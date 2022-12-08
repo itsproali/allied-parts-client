@@ -8,9 +8,9 @@ import { FaRegStar, FaStar } from "react-icons/fa";
 const Reviews = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  let url = "https://allied-parts-manufacturing.herokuapp.com/reviews";
+  let url = "https://allied-parts-server.vercel.app/reviews";
   if (location.pathname === "/") {
-    url = "https://allied-parts-manufacturing.herokuapp.com/review/6";
+    url = "https://allied-parts-server.vercel.app/review/6";
   }
   const {
     data: reviews,

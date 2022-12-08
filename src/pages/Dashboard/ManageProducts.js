@@ -11,7 +11,7 @@ const ManageProducts = () => {
     isLoading,
     refetch,
   } = useQuery("parts", () =>
-    apiClient.get("https://allied-parts-manufacturing.herokuapp.com/parts")
+    apiClient.get("https://allied-parts-server.vercel.app/parts")
   );
   if (isLoading) {
     return <Loading />;
@@ -19,7 +19,7 @@ const ManageProducts = () => {
 
   const handleDelete = (itemId) => {
     apiClient.delete(
-      `https://allied-parts-manufacturing.herokuapp.com/delete-item/${itemId}`
+      `https://allied-parts-server.vercel.app/delete-item/${itemId}`
     );
     refetch();
   };
